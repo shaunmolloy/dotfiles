@@ -1,0 +1,22 @@
+[user]
+	email = shaunmolloy@gmail.com
+	name = Shaun Molloy
+[alias]
+  a = add
+  b = branch
+	c = commit
+  co = checkout
+  cv = commit -v
+  d = diff
+  l = log
+  ll = log --oneline
+  last = log -1 HEAD --stat
+  r = reset
+  s = status
+  st = stash
+[core]
+	excludesFile = ~/.gitignore
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
