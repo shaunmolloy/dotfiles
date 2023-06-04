@@ -1,3 +1,6 @@
+.tmux/plugins/
+.tmux/resurrect/
+
 .vim/bundle/
 .vim/sessions.d/
 .vim/swap/
