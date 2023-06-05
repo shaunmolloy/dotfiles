@@ -1,0 +1,30 @@
+[alias]
+  a = add
+  b = branch
+  c = commit
+  co = checkout
+  cv = commit -v
+  da = diff master...
+  dc = diff --cached
+  d = diff
+  df = diff --name-only master...
+  last = log -1 HEAD --stat
+  last-tag = !git fetch -a --tags && git tag | grep release | sort -V | tail -n 1
+  ll = log --oneline
+  l = log
+  root = rev-parse --show-toplevel
+  r = reset
+  s = status
+  sta = stash show -p
+  stf = stash show --name-only
+  st = stash
+[core]
+  excludesFile = ~/.gitignore
+[init]
+  defaultBranch = main
+[pull]
+  rebase = false
+[user]
+  name = Shaun Molloy
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
