@@ -20,7 +20,7 @@ nmap <C-q><C-q> :q!<CR>
 function! MoveBack()
   edit #
 endfunction
-nnoremap <silent> <C-Down> :call MoveBack()<CR>
+nnoremap <silent> <C-Down> :silent! call MoveBack()<CR>
 
 " TODO Find in buffers
 " cexpr [] | :bufdo vimgrepadd /\cpdf/ % | copen

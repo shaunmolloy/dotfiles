@@ -42,6 +42,6 @@ function! AutoSave()
 endfunction
 augroup AutoSave
   autocmd!
-  au InsertLeave * :call AutoSave() " Leave insert mode
-  au TextChanged * :call AutoSave() " Change in normal mode
+  au InsertLeave * :silent! call AutoSave() " Leave insert mode
+  au TextChanged * :silent! call AutoSave() " Change in normal mode
 augroup END
