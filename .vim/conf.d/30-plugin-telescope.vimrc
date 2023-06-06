@@ -19,7 +19,15 @@ require('telescope').setup({
   },
   pickers = {
     find_files = {
-      find_command = { "fd", "--type", "f", "--color", "never", "--no-ignore", "--hidden", "--exclude", "node_modules" },
+      find_command = {
+        "fd",
+        "--type", "f",
+        "--color", "never",
+        "--no-ignore",
+        "--hidden",
+        "--exclude", "node_modules",
+        "--exclude", "build",
+      },
     }
   }
 })
