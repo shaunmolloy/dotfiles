@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+git_stash_list() {
+  LIST="$(git stash list)"
+  IFS=$'\n' lines=($LIST)
+  COUNT="$(echo "$LIST" | wc -l)"
+  START="$(echo $COUNT - 1 | bc)"
+
+  for (( i=$START; i>=0; i-- )); do
+    echo "${lines[$i]}"
+    FILES="$(git stash show stash@{$i} --name-only)"
+    echo -e "$FILES\n" | sed 's/^/  /'
+  done
+}
+git_stash_list

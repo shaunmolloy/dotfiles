@@ -4,3 +4,5 @@
 .vim/bundle/
 .vim/sessions.d/
 .vim/swap/
+
+bin/set-nice.json

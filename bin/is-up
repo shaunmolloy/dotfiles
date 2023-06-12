@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# check if websites (args passed) are up
+
+for site in $@
+do
+  echo
+  echo $site
+
+  curl -I -s $site | head -n 1 | grep -q "404" && echo down || echo up
+
+  echo
+done

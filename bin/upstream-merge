@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+# Checkout to upstream-merge branch if we're not on one
+BRANCH="$(git branch --show-current)"
+if [[ ! "$BRANCH" =~ "upstream-merge" ]]; then
+  git checkout -b feature/upstream-merge
+fi
+
+# Fetch latest from upstream
+git fetch upstream
+
+# Detect if upstream has a main or master branch and merge in
+if [ "$(git show-ref remotes/upstream/main)" ]; then
+  git merge remotes/upstream/main
+elif [ "$(git show-ref remotes/upstream/master)" ]; then
+  git merge remotes/upstream/master
+else
+  echo "Exiting: upstream has no main or master branch"
+  exit 1
+fi
+
+# Push to origin
+git push -u origin $(git branch --show-current)

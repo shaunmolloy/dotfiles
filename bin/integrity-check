@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+function sha256() {
+  echo "$(curl -s $1 | openssl dgst -sha256 -binary | openssl base64 -A)"
+  echo
+}
+sha256 $1

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# spellcheck
+# use aspell to dump list of spellchecked words
+
+cat $1 | # stdin
+  aspell -a -l en | # spellcheck with aspell
+  cut -d ' ' -f 2 |
+  grep -v '*' | # clean up aspell output
+  awk NF | # remove blank lines
+  sort | # sort
+  uniq -iu # remove duplicates

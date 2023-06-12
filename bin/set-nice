@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+FILE=./set-nice.json
+
+jq -c 'map(.) | .[]' $FILE | while read JSON;
+do
+  NAME=$(echo $JSON | jq -r '.name')
+  PRIORITY=$(echo $JSON | jq -r '.priority')
+  APPS=$(pidof $NAME)
+
+  if [ -z "$APPS" ]; then
+    continue
+  fi
+
+  echo "Updating nice level of \"$NAME\" to $PRIORITY"
+
+  for APP in $APPS; do
+    renice -n $PRIORITY $APP > /dev/null 2>&1
+  done
+done
+

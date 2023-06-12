@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# git-merged
+# Delete local branches that have been merged in
+
+# Compare against current branch
+branch="$(git branch --show-current)"
+
+# Compare to branch, when merged in
+head="$(git reflog show HEAD -1 | tail -n1 | awk '{ print $1 }')"
+
+branches="$(git branch --merged $branch | \
+  grep -Ev "(^\*|main|master|develop|dev|production|staging|release)" | \
+  perl -p -w -e 's/^\s+//g')"
+IFS=$'\n' aBranches=(${branches})
+branchCount=${#aBranches[*]}
+
+if [ "$branchCount" == 0 ]; then
+    echo -e "Nothing to remove.\n"
+else
+    bold=$(tput bold)
+    normal=$(tput sgr0)
+
+    # find merged branches
+    echo "${bold}Merged branches:${normal}"
+    echo "${branches}"
+
+    # confirm delete
+    echo && read -p "${bold}Delete branches?${normal} Y/y " -n 1 -r && echo
+    if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+        for branch in ${aBranches[@]}; do
+            git branch -d "${branch}"
+        done
+    fi
+fi

@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+vim_session() {
+  if [ ! -f ~/.bash_aliases ]; then
+    echo "No ~/.bash_aliases file found"
+    return 1
+  fi
+
+  # Source aliases
+  shopt -s expand_aliases
+  source ~/.bash_aliases
+
+  ALIASES="$(alias | grep 'vim -S')"
+  SESSION="$(echo "$ALIASES" | awk -F '=' '{ print $1 }' | sed 's/alias //' | fzf)"
+
+  if [ -z "$SESSION" ]; then
+    echo "No session selected"
+    return 1
+  fi
+
+  COMMAND="$(echo "$ALIASES" | grep "$SESSION" | awk -F '=' '{ print $2 }' | sed 's/\"//g' | xargs)"
+  eval "$COMMAND"
+}
+vim_session

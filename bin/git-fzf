@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Get options:
+# -e  edit file
+while getopts "e" arg; do
+  case $arg in
+    e) EDIT=true;;
+  esac
+done
+
+git_fzf() {
+  # Get file name
+  FILE=$(git status -s | awk -F ' ' '{print $2}' | fzf)
+
+  if [ ! -f $FILE ]; then
+    echo "File does not exist"
+    exit 1
+  fi
+
+  # Edit file or copy filename to clipboard
+  if [[ $EDIT == true ]]; then
+    $EDITOR $FILE
+  else
+    echo $FILE | xclip -selection clipboard
+  fi
+}
+git_fzf

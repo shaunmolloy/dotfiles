@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Run tmux and load vim promptline
+
+SESSION=loader
+WINDOW=1
+
+# create temp tmux session
+tmux new -d -s loader
+
+# load vim for promptline
+tmux send-keys -t "$SESSION:$WINDOW" "vim" Enter
+
+# kill temp session
+bash -c "sleep 1; tmux kill-session -t '$SESSION:$WINDOW'"
+
+# attach to last tmux session
+tmux a
