@@ -1,3 +1,6 @@
+" Preview window
+set splitbelow
+
 " navigate
 nnoremap gh <C-W><C-H>
 nnoremap gj <C-W><C-J>
@@ -11,7 +14,7 @@ nnoremap ;k <C-w>K
 nnoremap ;l <C-w>L
 
 " Maximise split
-nnoremap ;; <C-W>_
+nnoremap ;; :tabedit %<CR>
 " Tab to split
 nnoremap ;' :split<CR>
 

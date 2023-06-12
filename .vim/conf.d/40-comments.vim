@@ -27,4 +27,5 @@ noremap <silent> ,, :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR
 noremap <silent> ,. :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 
 " <Ctrl-l> redraws the screen and removes any search highlighting.
+set nohlsearch " disable highlighting by default
 nnoremap <silent> <C-l> :nohl<CR><C-l>

@@ -6,6 +6,12 @@ nnoremap <C-o> <cmd>Telescope buffers<CR>
 
 " <C-q> https://github.com/nvim-telescope/telescope.nvim/issues/814#issuecomment-1238510694
 
+" TODO add shortcuts to navigate folders
+" require('telescope').extensions.file_browser.file_browser({
+"   cwd = "~/.vim/conf.d/",
+" })
+
+" NOTE: fd flag --no-ignore finds files excluded from .gitignore
 lua << EOF
 require('telescope').setup({
   defaults = {
@@ -15,7 +21,12 @@ require('telescope').setup({
       i = {
         ["<C-u>"] = false,
       }
-    }
+    },
+    file_ignore_patterns = {
+      "build",
+      ".git",
+      "node_modules",
+    },
   },
   pickers = {
     find_files = {
@@ -23,12 +34,9 @@ require('telescope').setup({
         "fd",
         "--type", "f",
         "--color", "never",
-        "--no-ignore",
         "--hidden",
-        "--exclude", "node_modules",
-        "--exclude", "build",
       },
     }
-  }
+  },
 })
 EOF

@@ -24,6 +24,7 @@ autocmd BufNewFile,BufRead *.json set ft=json
 autocmd BufNewFile,BufRead *.js set filetype=javascript
 autocmd BufNewFile,BufRead *.rs set filetype=rust
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
+autocmd BufNewFile,BufRead *.vtl set filetype=json
 
 " Word wrap
 highlight ColorColumn ctermbg=lightgrey guibg=black

@@ -19,9 +19,6 @@ let g:ale_lint_delay = 0
 let g:ale_lint_on_enter = 1
 let g:ale_lint_on_filetype_changed = 0
 
-" Preview window
-set splitbelow
-
 " Linting
 " let g:ale_linter_aliases = {'js': ['javascript', 'typescript']}
 let g:ale_linters = {
