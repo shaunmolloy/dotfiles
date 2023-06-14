@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-FILE=./set-nice.json
+FILE=~/bin/set-nice.json
 
 jq -c 'map(.) | .[]' $FILE | while read JSON;
 do

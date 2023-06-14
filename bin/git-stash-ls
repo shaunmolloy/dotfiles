@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 git_stash_list() {
+  LIMIT=$1
   LIST="$(git stash list)"
   IFS=$'\n' lines=($LIST)
   COUNT="$(echo "$LIST" | wc -l)"
-  START="$(echo $COUNT - 1 | bc)"
+  [ ! -z "$LIMIT" ] && START="$(echo $LIMIT - 1 | bc)" || START="$(echo $COUNT - 1 | bc)"
 
   for (( i=$START; i>=0; i-- )); do
     echo "${lines[$i]}"
@@ -12,4 +13,4 @@ git_stash_list() {
     echo -e "$FILES\n" | sed 's/^/  /'
   done
 }
-git_stash_list
+git_stash_list $@
