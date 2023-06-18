@@ -11,21 +11,21 @@ nnoremap <C-o> <cmd>Telescope buffers<CR>
 "   cwd = "~/.vim/conf.d/",
 " })
 
-" NOTE: fd flag --no-ignore finds files excluded from .gitignore
 lua << EOF
 require('telescope').setup({
   defaults = {
     layout_strategy = 'vertical',
     layout_config = { height = 0.95, width = 0.95 },
+    dynamic_preview_title = true,
     mappings = {
       i = {
         ["<C-u>"] = false,
       }
     },
     file_ignore_patterns = {
-      "build",
-      ".git",
-      "node_modules",
+      "build/",
+      ".git/",
+      "node_modules/",
     },
   },
   pickers = {
@@ -35,8 +35,13 @@ require('telescope').setup({
         "--type", "f",
         "--color", "never",
         "--hidden",
+        "--no-ignore",
       },
-    }
+    },
+    buffers = {
+      ignore_current_buffer = true,
+      sort_lastused = true,
+    },
   },
 })
 EOF

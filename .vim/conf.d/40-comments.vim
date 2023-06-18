@@ -8,6 +8,7 @@ augroup commenting_blocks_of_code
   autocmd FileType conf            let b:comment_leader = '# '
   autocmd FileType cpp             let b:comment_leader = '// '
   autocmd FileType fstab           let b:comment_leader = '# '
+  autocmd FileType graphql         let b:comment_leader = '# '
   autocmd FileType java            let b:comment_leader = '// '
   autocmd FileType javascript      let b:comment_leader = '// '
   autocmd FileType mail            let b:comment_leader = '> '
@@ -23,6 +24,7 @@ augroup commenting_blocks_of_code
   autocmd FileType vim             let b:comment_leader = '" '
   autocmd FileType yaml             let b:comment_leader = '# '
 augroup END
+noremap <silent> <C-/> :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,, :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,. :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 

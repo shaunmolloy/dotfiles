@@ -5,6 +5,7 @@ set autochdir " always cds to cwd
 set nofoldenable " disable folding
 set mouse=a " turn on mouse
 set pastetoggle=<F2>
+set ic " ignore case
 
 set relativenumber " Relative line numbers
 set cursorlineopt=number " Highlight current line number
@@ -33,6 +34,16 @@ augroup END
 
 " Swap
 set directory=~/.vim/swap//
+
+" Toggle folding
+function! ToggleFolding()
+  if &foldmethod == 'indent'
+    set foldmethod=manual
+  else
+    set foldmethod=indent
+  endif
+endfunction
+nnoremap ,f :call ToggleFolding()<CR>
 
 " Auto save
 function! AutoSave()
