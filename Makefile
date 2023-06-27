@@ -1,5 +1,10 @@
-Help:
+help:
 	@grep -Eoh '^[A-Za-z_\-]+:' Makefile | sed 's/://'
+
+backup: backup-i3 backup-aliases backup-bin backup-git backup-tmux backup-vim
+
+backup-i3:
+	rsync -avzu --mkpath ~/.config/i3/ .config/i3/
 
 backup-aliases:
 	rsync -avzu --mkpath ~/.bash_aliases.d/personal/{docker,git}.sh .bash_aliases.d/personal
@@ -20,7 +25,10 @@ backup-vim:
 	rsync -avzu --mkpath ~/.vim/conf.d .vim/
 	rsync -avzu ~/.vimrc .
 
-backup: backup-aliases backup-bin backup-git backup-tmux backup-vim
+restore: restore-i3 restore-aliases restore-bin restore-git restore-tmux restore-vim
+
+restore-i3:
+	rsync -avzu --mkpath .config/i3/ ~/.config/i3/
 
 restore-aliases:
 	rsync -avzu --mkpath .bash_aliases.d/ ~/.bash_aliases.d/
@@ -39,5 +47,3 @@ restore-tmux:
 restore-vim:
 	rsync -avzu --mkpath .vim ~/
 	rsync -avzu .vimrc ~/
-
-restore: restore-aliases restore-bin restore-git restore-tmux restore-vim

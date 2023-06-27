@@ -1,0 +1,7 @@
+# set the mod key to the winkey:
+set $alt Mod1
+set $mod Mod4
+set $mod5 Mod5
+
+# https://i3wm.org/docs/userguide.html#include
+include ~/.config/i3/config.d/*

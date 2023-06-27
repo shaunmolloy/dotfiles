@@ -1,0 +1,12 @@
+# start a terminal
+bindsym --release $mod+Return exec kitty
+# bindsym --release $mod+Return exec xfce4-terminal
+
+# browser
+bindsym --release $mod+$alt+1 exec /usr/bin/brave-beta
+
+# file manager
+bindsym --release $mod+$alt+2 exec /usr/bin/thunar ~/Pictures/screenshots
+bindsym --release $mod+$alt+3 exec /usr/bin/thunar ~/Videos
+bindsym --release $mod+$alt+4 exec /usr/bin/thunar ~/Downloads
+

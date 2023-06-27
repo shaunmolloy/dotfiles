@@ -1,0 +1,6 @@
+# Screenshots
+## Full screen
+bindsym Print exec scrot ~/Pictures/screenshots/%Y-%m-%d-%T.png && notify-send "Screenshot saved $(date +"%Y-%m-%d-%T").png"
+## Region
+bindsym --release Shift+Print exec FILEPATH=~/Pictures/screenshots/$(date '+%Y-%m-%d-%H-%M-%S').png && scrot -s $FILEPATH && notify-send "Screenshot saved $(date +"%Y-%m-%d-%T").png" && xclip -selection clipboard -t image/png -i $FILEPATH
+

@@ -1,0 +1,37 @@
+# volume
+bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+
+# gradular volume control
+bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
+bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
+
+# mute vol
+bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
+# mute mic
+bindsym $alt+XF86AudioMute exec amixer sset Capture toggle && killall -USR1 i3blocks
+bindsym $mod5+XF86AudioMute exec amixer sset Capture toggle && killall -USR1 i3blocks
+
+# audio control
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Redirect sound to headphones
+bindsym $mod+p exec /usr/local/bin/switch-audio-port
+
+## media controls - spotify / misc
+# play/pause
+bindsym $mod5+Down exec "spt playback -d hercules -t"
+#bindsym $mod5+Down exec "playerctl play-pause"
+bindsym $mod5+Left exec "spt playback -d hercules -p"
+#bindsym $mod5+Left exec "playerctl previous"
+bindsym $mod5+Right exec "spt playback -d hercules -n"
+#bindsym $mod5+Right exec "playerctl next"
+# seek
+bindsym $mod5+Shift+Left exec "spt pb --seek -20"
+#bindsym $mod5+Shift+Left exec "playerctl position 20-"
+bindsym $mod5+Shift+Right exec "spt pb --seek +20"
+#bindsym $mod5+Shift+Right exec "playerctl position 20+"
+

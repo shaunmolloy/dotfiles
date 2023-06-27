@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+# TODO: PORT TO JSON FOR MANAGING WORKSPACES CLEANER
+
+TERMINAL='kitty'
+BROWSER='brave-beta'
+BROWSER_WORK="$BROWSER --profile-directory='Profile 1'"
+BROWSER_PERSONAL="$BROWSER --profile-directory='Default'"
+PASS_MANAGER='keeweb --no-sandbox'
+# STOCKS='~/bin/stocks'
+
+# workspace 1
+i3-msg "workspace 1; exec slack"
+sleep 2
+i3-msg "workspace 1; exec teams"
+sleep 4
+
+# workspace 2
+i3-msg "workspace 2; exec $BROWSER_WORK"
+sleep 3
+
+# workspace 3
+# i3-msg "workspace 3; exec spotify"
+i3-msg "workspace 3; exec $TERMINAL spt"
+sleep 1
+
+# workspace 4
+i3-msg "workspace 4; exec $BROWSER_PERSONAL"
+sleep 2
+# i3-msg "exec $STOCKS"
+# sleep 1
+
+# workspace 5
+i3-msg "workspace 5; exec $TERMINAL" 
+sleep 1
+
+# workspace 6
+i3-msg "workspace 6; exec $PASS_MANAGER"
+
+# workspace 7
+# workspace 8
+# workspace 9
+
