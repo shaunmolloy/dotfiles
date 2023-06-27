@@ -4,19 +4,22 @@ function! SyntaxSelectorHelper(command)
 endfunction
 function! SyntaxSelector()
   let l:options = [
-    \ "vim",
-    \ "typescriptreact",
-    \ "typescript",
-    \ "sql",
-    \ "sh",
-    \ "react",
-    \ "markdown",
-    \ "json",
-    \ "javascript",
-    \ "html",
-    \ "graphql",
-    \ "dbml",
     \ "css",
+    \ "dbml",
+    \ "graphql",
+    \ "html",
+    \ "javascript",
+    \ "json",
+    \ "lua",
+    \ "markdown",
+    \ "nginx",
+    \ "react",
+    \ "rust",
+    \ "sh",
+    \ "sql",
+    \ "typescript",
+    \ "typescriptreact",
+    \ "vim",
   \ ]
 "   return v:lua.require('telescope.builtin').find_files({ mappings = function(_, map)
 "     \ map("n", "<cr>", l:options)

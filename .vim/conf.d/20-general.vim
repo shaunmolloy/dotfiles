@@ -14,9 +14,7 @@ set numberwidth=5 " Line number width
 set signcolumn=yes
 
 set dictionary+=/usr/share/dict/words
-
-" TODO tags dir
-set tags=./.vim/tags " Tags file
+set tags=./tags;,tags; " Load tags, from current dir then upwards
 
 " Indent spaces
 filetype plugin indent on

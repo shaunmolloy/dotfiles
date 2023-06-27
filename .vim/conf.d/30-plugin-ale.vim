@@ -3,7 +3,7 @@ set completeopt=menu,menuone,preview,noselect,noinsert
 let g:ale_completion_enabled = 1
 
 nnoremap <C-d> :ALEGoToDefinition<CR>
-nnoremap <C-h> :ALEDetail<CR>
+nnoremap <A-h> :ALEDetail<CR>
 
 " function! FixerPrettier(buffer) abort
 "   return {

@@ -14,6 +14,7 @@ augroup commenting_blocks_of_code
   autocmd FileType mail            let b:comment_leader = '> '
   autocmd FileType make            let b:comment_leader = '# '
   autocmd FileType python          let b:comment_leader = '# '
+  autocmd FileType php             let b:comment_leader = '// '
   autocmd FileType ruby            let b:comment_leader = '# '
   autocmd FileType rust            let b:comment_leader = '// '
   autocmd FileType scala           let b:comment_leader = '// '
