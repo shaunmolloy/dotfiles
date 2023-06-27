@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+ctags \
+  --sort=yes \
+  --recurse=yes \
+  --exclude=.git \
+  --exclude=.svn \
+  --exclude=build \
+  --exclude=out \
+  --exclude=node_modules \
+  --languages=javascript,typescript,php \
+  .
