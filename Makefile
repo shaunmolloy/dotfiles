@@ -27,6 +27,7 @@ backup-vim:
 	rsync -avzu --mkpath ~/.vim/after .vim/
 	rsync -avzu --mkpath ~/.vim/conf.d .vim/
 	rsync -avzu ~/.vimrc .
+	rsync -avzu --mkpath ~/.config/nvim/ .config/nvim/
 
 restore: restore-i3 restore-aliases restore-bin restore-git restore-kitty restore-tmux restore-vim
 
@@ -53,3 +54,4 @@ restore-tmux:
 restore-vim:
 	rsync -avzu --mkpath .vim ~/
 	rsync -avzu .vimrc ~/
+	rsync -avzu --mkpath .config/nvim/ ~/.config/nvim/
