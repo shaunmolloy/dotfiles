@@ -13,8 +13,8 @@ nmap <silent> <C-w> :bd<CR><Esc>
 nmap <silent> <A-w> :bd!<CR><Esc>
 
 " Quit
-nmap <C-q> :q<CR>
-nmap <C-q><C-q> :q!<CR>
+" nmap <C-q> :q<CR>
+" nmap <C-q><C-q> :q!<CR>
 
 " Move back to previous buffer
 function! MoveBack()

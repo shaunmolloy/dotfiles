@@ -21,7 +21,10 @@ return {
         section_separators = '',
       },
       sections = {
-        lualine_c = { macro_recording },
+        lualine_c = {
+          { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
+          macro_recording,
+        },
       }
     }
   end,

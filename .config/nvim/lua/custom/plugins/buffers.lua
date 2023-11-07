@@ -9,6 +9,9 @@ map('n', '<C-Left>', ':bp<CR>', { desc = 'Go to previous buffer' })
 map('n', '<A-w>', ':bd<CR><Esc>', { desc = 'Close buffer' })
 map('n', '<S-w>', ':bd!<CR><Esc>', { desc = 'Force close buffer' })
 
+map('n', '<A-Right>', ':cn<CR>', { desc = 'Go to next count' })
+map('n', '<A-Left>', ':cp<CR>', { desc = 'Go to previous count' })
+
 map('n', '<C-q>', ':q<CR>', { desc = 'Quit' })
 map('n', '<C-q><C-q>', ':q!<CR>', { desc = 'Force quit' })
 

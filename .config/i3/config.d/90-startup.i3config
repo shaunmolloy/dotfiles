@@ -58,4 +58,4 @@ exec --no-startup-id xbindkeys -f ~/.xbindkeysrc
 #exec --no-startup-id ~/.screenlayout/monitor.sh
 exec --no-startup-id ~/bin-private/enable-monitors
 
-exec --no-startup-id ~/.config/i3/startup
+#exec --no-startup-id ~/.config/i3/startup
